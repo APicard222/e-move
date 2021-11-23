@@ -1,5 +1,19 @@
 <h1>Index</h1>
+
 <% @vehicles.each do |vehicle| %>
-  <%= link_to(vehicle.title, vehicle_path(vehicle)) %>
+  <div class="container">
+    <div class="card-trip">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= link_to(vehicle.title, vehicle_path(vehicle)) %></h2>
+          <p><%= vehicle.description%></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
+        <img src="../../../assets/images/logo_nav_e-move.svg" class="card-trip-user avatar-bordered" />
+      </div>
+    </div>
+  </div>
 <% end %>
+
 <%= link_to('Add', new_vehicle_path) %>

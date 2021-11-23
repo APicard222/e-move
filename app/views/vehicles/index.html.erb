@@ -1,6 +1,11 @@
-<h1>Index</h1>
+<div class="my_title_container">
+  <h1>All our speedy vehicles</h1>
+  <div class="index-button">
+    <%= link_to('Add', new_vehicle_path) %>
+  </div>
+</div>
 
-<div class="my_container">
+<div class="my_main_container">
   <% @vehicles.each do |vehicle| %>
     <div class="card-trip">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
@@ -15,5 +20,3 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to('Add', new_vehicle_path) %>

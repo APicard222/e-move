@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to  root_path, class: "navbar-brand" do %>
     <%= image_tag "logo_nav_e-move.svg" %>
   <% end %>
 
@@ -17,9 +17,14 @@
         <%= link_to "List your vehicles", "#", class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Login", "#", class: "nav-link" %>
-      </li><li class="nav-item">
-        <%= link_to "Register", "#", class: "btn-get" %>
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path , method: :delete, class: "nav-link" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Register", new_user_registration_path, class: "btn-get" %>
       </li>
       <%# <li class="nav-item dropdown">
         <%= image_tag "https://i2.wp.com/www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js.png?fit=438%2C408&ssl=1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

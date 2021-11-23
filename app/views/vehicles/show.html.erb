@@ -1,4 +1,4 @@
-<div class="container my-4">
+<div class="container-card-product">
   <div class="card-product">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
     <div class="card-product-infos">
@@ -8,5 +8,7 @@
       <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
     </div>
   </div>
+  <div>
+    <%= link_to('Back', vehicles_path, class: 'btn btn-primary') %>
+  </div>
 </div>
-  <%= link_to('Back', vehicles_path) %>

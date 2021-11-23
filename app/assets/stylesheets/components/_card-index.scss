@@ -1,3 +1,9 @@
+.my_container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+
 .card-trip {
   overflow: hidden;
   background: white;
@@ -15,6 +21,11 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+}
+
+.card-trip a:hover {
+  color: rgb(56, 56, 56);
+  text-decoration: none;
 }
 
 .card-trip p {

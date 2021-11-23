@@ -1,14 +1,13 @@
 <div class="sign-form">
-  <h2>New Vehicle</h2>
-  <%= simple_form_for(@vehicle) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-
-  <%= f.submit 'Create Vehicle', class: "sign-btn"%>
-  <% end %>
-
-  <div class="links">
-    <%= link_to('Back', vehicles_path) %>
-  </div>
+ <h2>New Vehicle</h2>
+ <%= simple_form_for @vehicle do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Create Vehicle", class: "sign-btn" %>
+ <% end %>
+ <div class="links">
+   <%= link_to('Back', vehicles_path) %>
+ </div>
 </div>

@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # validates :password, presence: true, length: { minimum: 6 }
   # validates :email, presence: true, uniqueness: true
   validates :address, presence: true
+  has_many :vehicles, dependent: :delete_all
 end

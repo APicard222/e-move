@@ -8,7 +8,8 @@
 <div class="my_main_container">
   <% @vehicles.each do |vehicle| %>
     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <%# <img src="https://res.cloudinary.com/dvzoubga6/image/upload/v1637326552/xknaz4xfi4kbtlrwjfry.jpg" /> %>
+      <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="card-trip-infos">
         <div>
           <h2><%= link_to(vehicle.title, vehicle_path(vehicle)) %></h2>

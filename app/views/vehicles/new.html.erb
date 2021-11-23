@@ -1,12 +1,18 @@
-<h1>New Vehicle</h1>
 
-<%= form_for(@vehicle) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :price %>
-  <%= f.number_field :price %>
-  <%= f.submit 'Create Vehicle'%>
-<% end %>
-<%= link_to('Back', vehicles_path) %>
+<div class="vehicule">
+  <h2>New Vehicle</h2>
+  <%= simple_form_for(@vehicle) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+      <div class="btn_style">
+        <%= f.submit 'Create Vehicle'%>
+      </div>
+  <% end %>
+      <div class="button_back ">
+        <%= link_to('Back', vehicles_path) %>
+      </div>
+</div>

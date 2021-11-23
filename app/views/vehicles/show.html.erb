@@ -1,2 +1,14 @@
-<h1>Show Vehicle</h1>
-<%= link_to('Back', vehicles_path) %>
+<div class="container-card-product">
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= @vehicle.title %></h2>
+      <p><%= @vehicle.description %></p>
+      <p><%= @vehicle.price %> CHF</p>
+      <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
+    </div>
+  </div>
+  <div>
+    <%= link_to('Back', vehicles_path, class: 'btn btn-primary') %>
+  </div>
+</div>

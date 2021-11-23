@@ -1,5 +1,5 @@
 <h1>Index</h1>
 <% @vehicles.each do |vehicle| %>
-  <%= link_to(vehicle.title, vehicles_path(vehicle)) %>
+  <%= link_to(vehicle.title, vehicle_path(vehicle)) %>
 <% end %>
 <%= link_to('Add', new_vehicle_path) %>

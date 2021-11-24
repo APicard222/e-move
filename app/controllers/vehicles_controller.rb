@@ -3,6 +3,12 @@ class VehiclesController < ApplicationController
 
   def index
     @vehicles = Vehicle.all
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show

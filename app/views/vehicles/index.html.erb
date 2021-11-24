@@ -1,23 +1,25 @@
-<div class="my_title_container">
-  <h1>All our speedy vehicles</h1>
-  <div class="index-button">
-    <%= link_to('Add', new_vehicle_path) %>
-  </div>
-</div>
-
-<div class="my_main_container">
-  <% @vehicles.each do |vehicle| %>
-    <div class="card-trip">
-      <%# <img src="https://res.cloudinary.com/dvzoubga6/image/upload/v1637326552/xknaz4xfi4kbtlrwjfry.jpg" /> %>
-      <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= link_to(vehicle.title, vehicle_path(vehicle)) %></h2>
-          <p><%= vehicle.description%></p>
-        </div>
-        <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
-        <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
-      </div>
+<div class="exterior_container">
+  <div class="my_title_container">
+    <h2>Find and rent your dream vehicle</h2>
+    <div class="index-button">
+      <%= link_to('Add', new_vehicle_path) %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="my_main_container">
+    <% @vehicles.each do |vehicle| %>
+      <div class="card-trip">
+        <%# <img src="https://res.cloudinary.com/dvzoubga6/image/upload/v1637326552/xknaz4xfi4kbtlrwjfry.jpg" /> %>
+        <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to(vehicle.title, vehicle_path(vehicle)) %></h2>
+            <p><%= vehicle.description%></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
+          <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

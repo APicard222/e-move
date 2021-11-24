@@ -8,4 +8,5 @@ class User < ApplicationRecord
   # validates :email, presence: true, uniqueness: true
   validates :address, presence: true
   has_many :vehicles, dependent: :delete_all
+  has_many :reservations, dependent: :destroy
 end

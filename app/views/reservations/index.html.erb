@@ -1,0 +1,25 @@
+<div class="my_title_container">
+  <h1>My reservations</h1>
+  <div class="index-button">
+    <%= link_to('New', vehicles_path) %>
+  </div>
+</div>
+
+<div class="my_main_container">
+  <% @reservations.each do |reservation| %>
+    <div class="card-trip">
+      <%# <img src="https://res.cloudinary.com/dvzoubga6/image/upload/v1637326552/xknaz4xfi4kbtlrwjfry.jpg" /> %>
+      <%= cl_image_tag reservation.vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-trip-infos">
+        <div>
+            <h2><%= reservation.vehicle.title %></h2>
+            <p>Start Date: <%=reservation.start_date%></p>
+            <p>End Date: <%=reservation.end_date%></p>
+        </div>
+        <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+        <% days = ((reservation.end_date) - (reservation.start_date)).to_i  %>
+        <h2><%= days * reservation.vehicle.price %> CHF</h2>
+      </div>
+    </div>
+  <% end %>
+</div>

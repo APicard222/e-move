@@ -10,7 +10,10 @@
     </div>
   </div>
   <div>
-    <%= link_to('Back', vehicles_path, class: 'btn btn-primary') %> |
-    <%= link_to('Edit', edit_vehicle_path, class: 'btn btn-primary') %>
+    <%= link_to('Back', vehicles_path, class: 'btn btn-primary') %>
+    <% if current_user == @vehicle.user %>
+      | <%= link_to('Edit', edit_vehicle_path, class: 'btn btn-primary') %>
+      | <%= link_to('Delete', vehicle_path(@vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger') %>
+    <% end %>
   </div>
 </div>

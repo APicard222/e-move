@@ -24,6 +24,20 @@ class VehiclesController < ApplicationController
     end
   end
 
+#def deux méthodes
+
+  def edit
+    @vehicle = Vehicle.find(params[:id])
+  end
+
+  def update
+    @vehicle = Vehicle.find(params[:id])
+
+    @vehicle.update(vehicle_params)
+    redirect_to vehicle_path(@vehicle)
+
+  end
+
   private
 
   def vehicle_params

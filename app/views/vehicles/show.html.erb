@@ -6,11 +6,14 @@
       <p><%= @vehicle.description %></p>
       <p><%= @vehicle.price %> CHF</p>
       <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
+      <%= link_to('Book', new_vehicle_reservation_path(@vehicle), class: 'btn btn-primary') %>
     </div>
   </div>
   <div>
-    <%= link_to('Back', vehicles_path, class: 'btn btn-primary') %> |
-    <%= link_to('Edit', edit_vehicle_path, class: 'btn btn-primary') %>
-
+    <%= link_to('Back', vehicles_path, class: 'btn btn-primary') %>
+    <% if current_user == @vehicle.user %>
+      | <%= link_to('Edit', edit_vehicle_path, class: 'btn btn-primary') %>
+      | <%= link_to('Delete', vehicle_path(@vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger') %>
+    <% end %>
   </div>
 </div>

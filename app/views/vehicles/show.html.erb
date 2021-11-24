@@ -6,6 +6,7 @@
       <p><%= @vehicle.description %></p>
       <p><%= @vehicle.price %> CHF</p>
       <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
+      <%= link_to('Book', new_vehicle_reservation_path(@vehicle), class: 'btn btn-primary') %>
     </div>
   </div>
   <div>

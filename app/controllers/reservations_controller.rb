@@ -7,7 +7,6 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    # we need `restaurant_id` to associate review with corresponding restaurant
     @vehicle = Vehicle.find(params[:vehicle_id])
     @user = current_user
     @reservation.vehicle = @vehicle

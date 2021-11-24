@@ -18,7 +18,7 @@
         </div>
         <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
         <% days = ((reservation.end_date) - (reservation.start_date)).to_i  %>
-        <h2><%= days * reservation.vehicle.price %> CHF</h2>
+        <h2><%= (days * reservation.vehicle.price) + reservation.vehicle.price%> CHF</h2>
       </div>
     </div>
   <% end %>

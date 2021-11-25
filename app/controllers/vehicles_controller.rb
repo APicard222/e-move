@@ -30,8 +30,6 @@ class VehiclesController < ApplicationController
     end
   end
 
-
-
   def edit
     @vehicle = Vehicle.find(params[:id])
   end
@@ -41,7 +39,13 @@ class VehiclesController < ApplicationController
 
     @vehicle.update(vehicle_params)
     redirect_to vehicle_path(@vehicle)
+  end
 
+  def destroy
+    @vehicle = Vehicle.find(params[:id])
+    @vehicle.destroy
+
+    redirect_to vehicles_path
   end
 
   private

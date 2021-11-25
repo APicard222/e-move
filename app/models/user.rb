@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   validates :address, presence: true
   has_many :vehicles, dependent: :delete_all
+  has_many :reservations, dependent: :destroy
 end

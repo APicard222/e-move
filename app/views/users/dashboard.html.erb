@@ -1,0 +1,29 @@
+<div class="exterior_container">
+<h1>My Dashboard</h1>
+<div class="subtitles">
+<h2><%= link_to "My Vehicles", dashboard_users_path, class: "selected"%></h2>
+<h2><%= link_to "My Reservations", reservations_path, class: "non-selected"%></h2>
+</div>
+  <% @vehicles.each do |vehicle| %>
+    <div class="card-product-dashboard">
+      <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="dashboard-card-info">
+        <div class="card-product-infos">
+        <div class="top-section">
+          <div>
+            <h2><%= vehicle.title%></h2>
+            <p><%= vehicle.description %></p>
+          </div>
+          <div style="vertical-align">
+            <span class="badge available">Available</span>
+          </div>
+        </div>
+        </div>
+        <div class="dashboard-buttons-dashboard">
+          <%= link_to("Edit", "#", class: "btn btn-outline-secondary") %>
+          <%= link_to('Delete', "#", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger") %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,16 +1,19 @@
 <div class="container-card-product">
   <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-product-infos">
       <h2><%= @vehicle.title %></h2>
       <p><%= @vehicle.description %></p>
-      <p><%= @vehicle.price %> CHF</p>
+      <p classe= "price"><%= @vehicle.price %> CHF</p>
       <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
+      <%= link_to('Book', new_vehicle_reservation_path(@vehicle), class: 'bn3') %>
     </div>
   </div>
   <div>
-    <%= link_to('Back', vehicles_path, class: 'btn btn-primary') %> |
-    <%= link_to('Edit', edit_vehicle_path, class: 'btn btn-primary') %>
-
+    <%= link_to('Back', vehicles_path, class: 'bn4') %>
+    <% if current_user == @vehicle.user %>
+      | <%= link_to('Edit', edit_vehicle_path, class: 'bn4') %>
+      | <%= link_to('Delete', vehicle_path(@vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: 'bn4') %>
+    <% end %>
   </div>
 </div>

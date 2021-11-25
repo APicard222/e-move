@@ -1,27 +1,44 @@
 <div class="exterior_container">
-  <div class="my_title_container">
-    <h1>Current reservations</h1>
-    <div class="index-button">
-      <%= link_to('New', vehicles_path) %>
-    </div>
+  <h1>Current reservations</h1>
+  <div class="subtitles">
+    <h2><%= link_to "My Vehicles", dashboard_users_path, class: "non-selected"%></h2>
+    <h2><%= link_to "My Reservations", reservations_path, class: "selected"%></h2>
   </div>
 
-  <div class="my_main_container">
-    <% @reservations.each do |reservation| %>
-      <div class="card-trip">
-        <%# <img src="https://res.cloudinary.com/dvzoubga6/image/upload/v1637326552/xknaz4xfi4kbtlrwjfry.jpg" /> %>
-        <%= cl_image_tag reservation.vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
-              <h2><%= reservation.vehicle.title %></h2>
-              <p>Start Date: <%=reservation.start_date%></p>
-              <p>End Date: <%=reservation.end_date%></p>
+  <% @reservations.each do |reservation| %>
+    <div class="card-product-dashboard">
+      <%= cl_image_tag reservation.vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="dashboard-card-info">
+        <div class="card-product-infos">
+          <div class="top-section">
+            <div class="basic-infos">
+              <h2><%= reservation.vehicle.title%></h2>
+              <p><%= reservation.vehicle.description%></p>
+            </div>
+            <div style="vertical-align">
+              <span class="badge pending">⌛ Pending</span>
+            </div>
           </div>
-          <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
-          <% days = ((reservation.end_date) - (reservation.start_date)).to_i  %>
-          <h2><%= (days * reservation.vehicle.price) + reservation.vehicle.price%> CHF</h2>
+        </div>
+        <div class="bottom-section">
+          <div class="reservation-infos">
+            <div>
+              <% days = ((reservation.end_date) - (reservation.start_date)).to_i  %>
+              <h2><%= (days * reservation.vehicle.price) + reservation.vehicle.price%> CHF</h2>
+            </div>
+          </div>
+          <div class="dashboard-buttons">
+            <div class="owner-infos">
+              <h5><%= reservation.user.user_name%></h5>
+              <p>📅 From: <%=reservation.start_date%> to <%=reservation.end_date%></p>
+            </div>
+            <div class="buttons">
+              <%= link_to("Leave a review", "#", class: "btn btn-outline-secondary") %>
+              <%= link_to("Finish", "#", class: "btn btn-outline-secondary") %>
+            </div>
+          </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

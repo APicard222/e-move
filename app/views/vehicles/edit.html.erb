@@ -1,6 +1,27 @@
-<%= simple_form_for @vehicle do |f|%>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.submit "save your changes" %>
-<% end %>
+<div class="exterior_container">
+    <div class="reviews-container">
+      <h3>Edit your Vehicle</h3>
+      <div class="review">
+        <div class="review-card">
+          <div class="card-trip">
+              <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+              <div class="card-trip-infos">
+                <div>
+                    <h2><%= @vehicle.title %></h2>
+                    <p>Start Date:</p>
+                    <p>End Date:</p>
+                </div>
+                <h2> CHF</h2>
+              </div>
+          </div>
+        </div>
+          <%= simple_form_for @vehicle do |f|%>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <%= f.input :price %>
+            <%= f.input :address %>
+            <%= f.submit "save your changes" %>
+          <% end %>
+      </div>
+    </div>
+</div>

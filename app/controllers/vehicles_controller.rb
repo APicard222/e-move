@@ -38,7 +38,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.find(params[:id])
 
     @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    redirect_to dashboard_users_path(@vehicle)
   end
 
   def destroy

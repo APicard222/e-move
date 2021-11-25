@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :reservations, only: %i[new create]
   end
   resources :reservations, only: %i[index destroy]
+  resources :users, only: %i[destroy]
   resources :users do
     collection do
       get :dashboard

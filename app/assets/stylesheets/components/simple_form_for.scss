@@ -1,4 +1,4 @@
-.reviews-container {
+.reviews-container-sff {
   width: 80%;
   margin: 50px auto;
   display: flex;
@@ -6,11 +6,11 @@
   background-color: rgb(255, 255, 255);
   padding: 20px;
 
-  .review {
+  .review-sff {
     display: flex;
   }
 
-  .review-card {
+  .review-card-sff {
     width: 600px;
   }
 

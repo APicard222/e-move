@@ -6,8 +6,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true
   # validates :password, presence: true, length: { minimum: 6 }
   # validates :email, presence: true, uniqueness: true
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+
   validates :address, presence: true
   has_many :vehicles, dependent: :delete_all
 end

@@ -1,12 +1,12 @@
 class VehiclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @vehicles = Vehicle.all
-    @markers = @flats.geocoded.map do |flat|
+    @markers = @vehicles.geocoded.map do |vehicle|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: vehicle.latitude,
+        lng: vehicle.longitude
       }
     end
   end
@@ -30,7 +30,7 @@ class VehiclesController < ApplicationController
     end
   end
 
-#def deux méthodes
+
 
   def edit
     @vehicle = Vehicle.find(params[:id])

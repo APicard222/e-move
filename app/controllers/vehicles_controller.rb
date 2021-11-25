@@ -1,8 +1,14 @@
 class VehiclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @vehicles = Vehicle.all
+    @markers = @vehicles.geocoded.map do |vehicle|
+      {
+        lat: vehicle.latitude,
+        lng: vehicle.longitude
+      }
+    end
   end
 
   def show
@@ -17,7 +23,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
 
-    if @vehicle.save
+    if @vehicle.save!
       redirect_to vehicles_path
     else
       render :new
@@ -45,6 +51,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:title, :description, :price, :photo)
+    params.require(:vehicle).permit(:title, :address, :description, :price, :photo)
   end
 end

@@ -24,10 +24,12 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports
 import { showNavbar } from '../components/navBar';
 
 document.addEventListener('turbolinks:load', () => {
+  initMapbox();
   showNavbar();
 });

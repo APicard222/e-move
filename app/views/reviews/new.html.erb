@@ -1,0 +1,7 @@
+<h3>Add Review</h3>
+<%= simple_form_for [@vehicle, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.submit 'Add' %>
+<% end %>
+<%= link_to('back', reservations_path) %>

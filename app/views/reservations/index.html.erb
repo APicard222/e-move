@@ -9,7 +9,6 @@
   <div class="my_main_container">
     <% @reservations.each do |reservation| %>
       <div class="card-trip">
-        <%# <img src="https://res.cloudinary.com/dvzoubga6/image/upload/v1637326552/xknaz4xfi4kbtlrwjfry.jpg" /> %>
         <%= cl_image_tag reservation.vehicle.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
           <div>
@@ -20,6 +19,9 @@
           <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
           <% days = ((reservation.end_date) - (reservation.start_date)).to_i  %>
           <h2><%= (days * reservation.vehicle.price) + reservation.vehicle.price%> CHF</h2>
+          <% if Date.today > reservation.end_date%>
+            <%= link_to('Add Review', new_vehicle_review_path(reservation.vehicle)) %>
+          <% end %>
         </div>
       </div>
     <% end %>

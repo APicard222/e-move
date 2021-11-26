@@ -45,3 +45,19 @@
     margin-bottom: 20px;
   }
 }
+
+.reviews-show-container {
+  width: 95%;
+  margin: 20px auto;
+  background-color: rgb(235, 235, 235);
+  padding: 10px;
+  border-radius: 5px;
+
+  .review-comment {
+    background-color: white;
+  }
+
+  p {
+    padding: 2px;
+  }
+}

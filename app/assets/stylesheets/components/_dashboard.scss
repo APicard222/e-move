@@ -45,7 +45,7 @@
 .dashboard-buttons {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
 }
 
 .buttons {
@@ -111,4 +111,9 @@
   justify-self: flex-end;
   align-self: flex-end;
   padding: 10px;
+}
+
+.price-info {
+  align-self: flex-end;
+  padding-right: 10px;
 }

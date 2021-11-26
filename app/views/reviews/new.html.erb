@@ -11,7 +11,16 @@
                 <p>Start Date: <%=reservation.start_date%></p>
                 <p>End Date: <%=reservation.end_date%></p>
             </div>
-            <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+            <div class="avatar_h5">
+              <% user = User.find(reservation.user_id) %>
+              <h5>
+                 <% if user.photo.attached? %>
+                    <%= cl_image_tag user.photo.key, class: "card-trip-user avatar-bordered" %>
+                  <% else %>
+                    <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+                  <% end %>
+              </h5>
+            </div>
             <% days = ((reservation.end_date) - (reservation.start_date)).to_i  %>
             <h2><%= (days * reservation.vehicle.price) + reservation.vehicle.price%> CHF</h2>
           </div>

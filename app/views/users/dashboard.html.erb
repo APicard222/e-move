@@ -14,23 +14,28 @@
         <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="dashboard-card-info">
           <div class="card-product-info">
-          <div class="top-section">
-            <div>
-              <h2><%= vehicle.title%></h2>
-              <p><%= vehicle.description %></p>
-            </div>
-            <div style="vertical-align">
-              <% if vehicle.available %>
-                <span class="badge available">&#X2705; Available</span>
-              <% else %>
-                <span class="badge reserved">&#X26D4; In Use</span>
-              <% end %>
+            <div class="top-section">
+              <div class="basic-infos">
+                <h2><%= vehicle.title%></h2>
+                <p><%= vehicle.description %></p>
+              </div>
+              <div style="vertical-align">
+                <% if vehicle.available %>
+                  <span class="badge available">&#X2705; Available</span>
+                <% else %>
+                  <span class="badge reserved">&#X26D4; In Use</span>
+                <% end %>
+              </div>
             </div>
           </div>
-          </div>
-          <div class="dashboard-buttons-dashboard">
-            <%= link_to("Edit", edit_vehicle_path(vehicle), class: "btn btn-outline-secondary") %>
-            <%= link_to('Delete', vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger") %>
+          <div class="bottom-section">
+            <div class="price-info">
+              <h2><%= vehicle.price %> CHF</h2>
+            </div>
+            <div class="dashboard-buttons-dashboard">
+              <%= link_to("Edit", edit_vehicle_path(vehicle), class: "btn btn-outline-secondary") %>
+              <%= link_to('Delete', vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger") %>
+            </div>
           </div>
         </div>
       </div>

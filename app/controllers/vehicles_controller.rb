@@ -14,6 +14,7 @@ class VehiclesController < ApplicationController
   def show
     @vehicle = Vehicle.find(params[:id])
     @reservation = Reservation.new
+    @reviews = Review.where(vehicle_id: params[:id])
   end
 
   def new

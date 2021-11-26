@@ -1,9 +1,10 @@
-<div container_show>
-  <div container_cards>
+<div container >
+<h1> Reservez </h1>
+  <div class="container_cards">
     <div class="container-card-product">
       <div class="card-image">
         <div class="img-banner">
-          <%= cl_image_tag @vehicle.photo.key, height: 465, width: 550, crop: :fill %>
+          <%= cl_image_tag @vehicle.photo.key, height: 465, width: 600, crop: :fill %>
         </div>
 
         <div class="card-product-infos">
@@ -11,6 +12,7 @@
           <p class= "card__dsc"><%= @vehicle.description %></p>
           <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
         </div>
+      </div> 
     </div>
 
       <!--booking --> 
@@ -20,7 +22,7 @@
           <figure>
             <figcaption class='header-caption'>
               <h3 id="">Trotinette</h3>
-              <span id=""><i class="fa fa-map-marker" aria-hidden="true"></i>Lausanne, Suisse</span>
+              <span id=""><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @vehicle.address %></span>
               <p><%= @vehicle.price %> CHF</p>
             </figcaption>         
           </figure>
@@ -46,6 +48,7 @@
           <% end %>
     </div>
   </div>
+  
   <div>
     <%= link_to('Back', vehicles_path, class: 'bn4') %>
     <% if current_user == @vehicle.user %>

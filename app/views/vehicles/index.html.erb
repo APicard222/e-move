@@ -1,7 +1,7 @@
 <div class="container">
-   <h2>Find and rent your dream vehicle</h2>
+   <h2>&#x2B50; Find and rent your dream vehicle &#x2B50;</h2>
     <div class="index-button">
-      <%= link_to('Add', new_vehicle_path) %>
+      <%= link_to('Add a vehicle', new_vehicle_path) %>
     </div>
   <div class="row mt-3">
     <div class="col-6">
@@ -11,7 +11,7 @@
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to(vehicle.title, vehicle_path(vehicle)) %></h2>
-              <p><%= vehicle.description%></p>
+              <p>"<%= vehicle.description%>"</p>
             </div>
             <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
             <% user = User.find(vehicle.user_id) %>

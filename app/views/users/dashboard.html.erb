@@ -20,7 +20,11 @@
               <p><%= vehicle.description %></p>
             </div>
             <div style="vertical-align">
-              <span class="badge available">Available</span>
+              <% if vehicle.available %>
+                <span class="badge available">&#X2705; Available</span>
+              <% else %>
+                <span class="badge reserved">&#X26D4; In Use</span>
+              <% end %>
             </div>
           </div>
           </div>

@@ -18,7 +18,11 @@
               <p><%= reservation.vehicle.description%></p>
             </div>
             <div style="vertical-align">
-              <span class="badge pending">⌛ Pending</span>
+              <% if reservation.vehicle.available %>
+                <span class="badge finished">Finished</span>
+              <% else %>
+                <span class="badge current">In Progress</span>
+              <% end %>
             </div>
           </div>
         </div>
@@ -33,18 +37,15 @@
             <div class="owner-infos">
               <div class="avatar_h5">
                 <% user = User.find(reservation.user_id) %>
-                <% if user.photo.attached? %>
-                  <%= cl_image_tag user.photo.key, id: "avatar-bordered" %>
-                <% else %>
-                  <img src="https://picsum.photos/200/200" class="avatar-bordered" />
-                <% end %>
+
                 <h5><%= reservation.user.user_name%></h5>
               </div>
               <p>📅 From: <%=reservation.start_date%> to <%=reservation.end_date%></p>
             </div>
             <div class="buttons">
-              <%= link_to("Leave a review", "#", class: "btn btn-outline-secondary") %>
-              <%= link_to("Finish", "#", class: "btn btn-outline-secondary") %>
+              <% unless reservation.vehicle.available %>
+               <%= link_to("Finish", new_vehicle_review_path(reservation.vehicle), class: "btn btn-outline-secondary") %>
+              <% end %>
             </div>
           </div>
         </div>

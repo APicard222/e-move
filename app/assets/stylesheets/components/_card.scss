@@ -1,30 +1,31 @@
 .container-card-product {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px 0;
+  flex-grow: 1;
+  background-color: rgb(240, 240, 240);
+  padding-bottom: 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .44);
 }
 
-.card-product {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 3px rgba(0,0,0,0.2);
-  display: flex;
+.card-image {
+  display:flex;
   flex-direction: column;
+  padding-left: 30px;
+}
+
+.img-banner {
+  display: flex;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  
 }
 
 .card-product:hover {
   opacity: 1;
-}
-
-.card-product img {
-  height: 100%;
-  width: 350px;
-  object-fit: cover;
 }
 
 .card-product h2 {
@@ -41,8 +42,39 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product-infos {
   padding: 16px;
+  box-sizing: border-box;
+  width: 550px;
+  min-height: 105px;
+  padding-bottom: 1px;
+  background-color: #fbfbfb;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .44);
+}
+
+.card_title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.card__dsc {
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+color: #868686;
+}
+
+.card_price {
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  text-decoration-line: underline;
+  justify-content:flex-end;
 }
 
 .bn3 {
@@ -63,7 +95,7 @@
 }
 
 .bn3:hover {
-  color: black;
+  color: rgb(255, 255, 255);
   background-color: rgb(126, 126, 126);
   text-decoration: none;
 }
@@ -82,6 +114,141 @@
   color: black;
 }
 
-.price {
-  justify-content: flex-end;
+
+
+/* booking */
+
+
+
+.booking-widget {
+  margin: 20px auto;
+  height: 100vh;
+}
+
+.booking-widget {
+  box-sizing: border-box;
+  width: 345px;
+  min-height: 605px;
+  padding-bottom: 1px;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .44);
+}
+
+.booking-widget__header {
+  background-color: rgba(0, 128, 0, 0.329);
+  width: 100%;
+  height: 185px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 1px 0px 3px rgba(0, 0, 0, .44);
+}
+
+.booking-widget__header figure {
+  margin: 0;
+  padding: 0;
+}
+
+.header-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  color: rgb(255, 255, 255);
+}
+
+.header-caption p {
+  padding-top: 25px;
+  font-weight: bold;
+  color: rgba(255, 0, 0, 0.479);
+}
+
+.header-caption h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+}
+
+.booking-widget__form {
+  list-style-type: none;
+  padding: 0 25px 0 25px;
+  margin: 0;
+}
+
+.booking-widget__form li {
+  margin: 25px 0;
+}
+
+.form-field {
+  position: relative;
+  background-color: #f4f4f4;
+  margin-top: 10px;
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.form-field__checkbox {
+  display: inline-block;
+  width: 20px;
+}
+
+.form-field__checkbox input[type='checkbox'] {
+  width: 100%;
+  opacity: .0;
+}
+
+.form-field__checkbox input[type='checkbox']:checked {
+  opacity: 1;
+}
+
+
+.form-field label {
+  color: #666666;
+} 
+
+.datepicker, .select-button {
+  box-sizing: border-box;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 38px;
+  background-color: #414b59;
+  color: white;
+}
+
+.form-field input[type='text'],
+.form__dropdown select {
+  height: 45px;
+  width: 100%;
+  padding: 0 0 0 3px;
+  background-color: #f4f4f4;
+  border: none;
+}
+
+.form__dropdown {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 45%;
+  padding: 5px;
+}
+
+.form__dropdown:last-child {
+  float: right;
+}
+
+.form__submit {
+  width: 100%;
+  height: 58px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  background-color: #8c8d8c;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0px 1px 1px 0 darkgrey;
+  border-radius: 5px;
+  cursor: pointer;
 }

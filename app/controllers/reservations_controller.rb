@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
   end
 
   def index
+    raise
     @vehicles = Vehicle.where(user_id: current_user)
     @reservations = Reservation.where(user_id: current_user)
   end

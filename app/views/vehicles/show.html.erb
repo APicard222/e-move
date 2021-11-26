@@ -48,12 +48,12 @@
       | <%= link_to('Delete', vehicle_path(@vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: 'bn4') %>
     <% end %>
   </div>
-  <div >
+  <div class="reviews-show-container">
     <h3>Reviews &#x2B50</h3>
     <% @reviews.each do |review| %>
-      <div>
-        <p><%= review.comment %></p>
-        <p>Author: <small><%=review.user.user_name %></small> - <small><%= review.created_at %></small></p>
+      <div class="review-comment">
+        <p><strong>Comment:</strong> <%= review.comment %></p>
+        <p><strong>Author:</strong> <small><%=review.user.user_name %></small> - <small><%= review.created_at %></small></p>
       </div>
     <% end %>
   </div>

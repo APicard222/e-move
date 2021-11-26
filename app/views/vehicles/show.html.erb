@@ -52,7 +52,7 @@
     <h3>Reviews &#x2B50</h3>
     <% @reviews.each do |review| %>
       <div class="review-comment">
-        <p><strong>Comment:</strong> <%= review.comment %></p>
+        <p class="comment-p"><strong>Comment:</strong> <%= review.comment %></p>
         <p><strong>Author:</strong> <small><%=review.user.user_name %></small> - <small><%= review.created_at %></small></p>
       </div>
     <% end %>

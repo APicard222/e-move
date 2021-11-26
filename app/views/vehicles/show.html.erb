@@ -1,50 +1,51 @@
-<div container>  
-  <div class="container-card-product">
-    <div class="card-image">
-      <div class="img-banner">
-        <%= cl_image_tag @vehicle.photo.key, height: 465, width: 550, crop: :fill %>
-      </div>
+<div container_show>
+  <div container_cards>
+    <div class="container-card-product">
+      <div class="card-image">
+        <div class="img-banner">
+          <%= cl_image_tag @vehicle.photo.key, height: 465, width: 550, crop: :fill %>
+        </div>
 
-      <div class="card-product-infos">
-        <h2 class= "card_title"><%= @vehicle.title %></h2>
-        <p class= "card__dsc"><%= @vehicle.description %></p>
-        <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
-      </div>
-  </div>
-
-    <!--booking --> 
-
-  <div class="booking-widget">
-    <div class='booking-widget__header'>
-        <figure>
-          <figcaption class='header-caption'>
-            <h3 id="">Trotinette</h3>
-            <span id=""><i class="fa fa-map-marker" aria-hidden="true"></i>Lausanne, Suisse</span>
-            <p><%= @vehicle.price %> CHF</p>
-          </figcaption>         
-        </figure>
+        <div class="card-product-infos">
+          <h2 class= "card_title"><%= @vehicle.title %></h2>
+          <p class= "card__dsc"><%= @vehicle.description %></p>
+          <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
+        </div>
     </div>
-    <div class='booking-widget__form'>
-      <%= simple_form_for [@vehicle, @reservation] do |f| %>
-        <label for='check-in'>Check in</label>
-        <div id='check-in' class='form-field'>
-        <%= f.input :start_date, as: :date, html5: true %>
-        </div>
-        
-        <label for='check-in'>Check out</label>
-        <div id='check-out' class='form-field'>
-        <%= f.input :end_date, as: :date, html5: true %>
-        </div>
 
-        <div class=' form-field form-field__checkbox'>
-          <input type="checkbox" id='flexibleDates' value="">
-        </div>
-          <label for="flexibleDates">Flexible dates</label>
+      <!--booking --> 
 
-        <%= f.submit "Book", class: "bn3" %> 
-        <% end %>
+    <div class="booking-widget">
+      <div class='booking-widget__header'>
+          <figure>
+            <figcaption class='header-caption'>
+              <h3 id="">Trotinette</h3>
+              <span id=""><i class="fa fa-map-marker" aria-hidden="true"></i>Lausanne, Suisse</span>
+              <p><%= @vehicle.price %> CHF</p>
+            </figcaption>         
+          </figure>
+      </div>
+      <div class='booking-widget__form'>
+        <%= simple_form_for [@vehicle, @reservation] do |f| %>
+          <label for='check-in'>Check in</label>
+          <div id='check-in' class='form-field'>
+          <%= f.input :start_date, as: :date, html5: true %>
+          </div>
+          
+          <label for='check-in'>Check out</label>
+          <div id='check-out' class='form-field'>
+          <%= f.input :end_date, as: :date, html5: true %>
+          </div>
+
+          <div class=' form-field form-field__checkbox'>
+            <input type="checkbox" id='flexibleDates' value="">
+          </div>
+            <label for="flexibleDates">Flexible dates</label>
+
+          <%= f.submit "Book", class: "bn3" %> 
+          <% end %>
+    </div>
   </div>
-
   <div>
     <%= link_to('Back', vehicles_path, class: 'bn4') %>
     <% if current_user == @vehicle.user %>

@@ -27,7 +27,9 @@ import "bootstrap";
 
 // Internal imports
 import { showNavbar } from '../components/navBar';
+import { getRatingStars } from '../components/ratingStars';
 
 document.addEventListener('turbolinks:load', () => {
   showNavbar();
+  getRatingStars();
 });

@@ -1,12 +1,19 @@
 class VehiclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @vehicles = Vehicle.all
+    @markers = @vehicles.geocoded.map do |vehicle|
+      {
+        lat: vehicle.latitude,
+        lng: vehicle.longitude
+      }
+    end
   end
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
@@ -17,7 +24,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
 
-    if @vehicle.save
+    if @vehicle.save!
       redirect_to vehicles_path
     else
       render :new
@@ -32,19 +39,19 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.find(params[:id])
 
     @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    redirect_to dashboard_users_path(@vehicle)
   end
 
   def destroy
     @vehicle = Vehicle.find(params[:id])
     @vehicle.destroy
 
-    redirect_to vehicles_path
+    redirect_to dashboard_users_path(@vehicle)
   end
 
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:title, :description, :price, :photo)
+    params.require(:vehicle).permit(:title, :address, :description, :price, :photo)
   end
 end

@@ -23,6 +23,7 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
+    @vehicle.available = true
 
     if @vehicle.save!
       redirect_to vehicles_path

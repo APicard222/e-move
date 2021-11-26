@@ -6,12 +6,15 @@
   <div class="row mt-3">
     <div class="col-6">
       <% @vehicles.each do |vehicle| %>
+        <% count = Review.where(vehicle_id: vehicle.id).count %>
         <div class="card-trip">
           <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to(vehicle.title, vehicle_path(vehicle)) %></h2>
               <p>"<%= vehicle.description%>"</p>
+              <p><%= vehicle.description%></p>
+              <p><%= count %> - <i class="fa fa-commenting-o" aria-hidden="true"></i></p>
             </div>
             <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
             <% user = User.find(vehicle.user_id) %>

@@ -28,8 +28,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports
 import { showNavbar } from '../components/navBar';
+import { getRatingStars } from '../components/ratingStars';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   showNavbar();
+  getRatingStars();
 });

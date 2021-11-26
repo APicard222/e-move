@@ -1,0 +1,36 @@
+<div class="reviews-container">
+  <h3>Add Review</h3>
+  <div class="review">
+    <% reservation = Reservation.where('user_id=? AND vehicle_id=?', current_user, @vehicle).first %>
+    <div class="review-card">
+      <div class="card-trip">
+          <%= cl_image_tag reservation.vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="card-trip-infos">
+            <div>
+                <h2><%= reservation.vehicle.title %></h2>
+                <p>Start Date: <%=reservation.start_date%></p>
+                <p>End Date: <%=reservation.end_date%></p>
+            </div>
+            <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+            <% days = ((reservation.end_date) - (reservation.start_date)).to_i  %>
+            <h2><%= (days * reservation.vehicle.price) + reservation.vehicle.price%> CHF</h2>
+          </div>
+      </div>
+    </div>
+    <div class="review-form-stars">
+      <div class="review-stars">
+        <i class="fa fa-star" data-rating=1 aria-hidden="true"></i>
+        <i class="fa fa-star" data-rating=2 aria-hidden="true"></i>
+        <i class="fa fa-star" data-rating=3 aria-hidden="true"></i>
+        <i class="fa fa-star" data-rating=4 aria-hidden="true"></i>
+        <i class="fa fa-star" data-rating=5 aria-hidden="true"></i>
+      </div>
+      <%= simple_form_for [@vehicle, @review], html: { id: 'review-form'} do |f| %>
+        <%= f.input :comment, as: :text, label: false, placeholder: 'Leave your review' %>
+        <%= f.input :rating , as: :hidden, input_html: { value: 0 } %>
+        <%= f.submit 'Add' %>
+      <% end %>
+      <%= link_to('Back', reservations_path, class: 'btn btn-outline-secondary') %>
+    </div>
+  </div>
+</div>

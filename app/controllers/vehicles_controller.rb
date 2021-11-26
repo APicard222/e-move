@@ -13,6 +13,7 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
@@ -38,14 +39,14 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.find(params[:id])
 
     @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    redirect_to dashboard_users_path(@vehicle)
   end
 
   def destroy
     @vehicle = Vehicle.find(params[:id])
     @vehicle.destroy
 
-    redirect_to vehicles_path
+    redirect_to dashboard_users_path(@vehicle)
   end
 
   private

@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 2021_11_25_124648) do
     t.index ["vehicle_id"], name: "index_reservations_on_vehicle_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "vehicle_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["vehicle_id"], name: "index_reviews_on_vehicle_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "user_name"
     t.string "address"
@@ -79,5 +90,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_124648) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reservations", "users"
   add_foreign_key "reservations", "vehicles"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "vehicles"
   add_foreign_key "vehicles", "users"
 end

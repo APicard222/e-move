@@ -1,5 +1,7 @@
 <div class="exterior_container">
-  <h1>Current reservations</h1>
+  <div class="my_title_container">
+    <h1>Current reservations</h1>
+  </div>
   <div class="subtitles">
     <h2><%= link_to "My Vehicles", dashboard_users_path, class: "non-selected"%></h2>
     <h2><%= link_to "My Reservations", reservations_path, class: "selected"%></h2>
@@ -29,7 +31,15 @@
           </div>
           <div class="dashboard-buttons">
             <div class="owner-infos">
-              <h5><%= reservation.user.user_name%></h5>
+              <div class="avatar_h5">
+                <% user = User.find(reservation.user_id) %>
+                <% if user.photo.attached? %>
+                  <%= cl_image_tag user.photo.key, id: "avatar-bordered" %>
+                <% else %>
+                  <img src="https://picsum.photos/200/200" class="avatar-bordered" />
+                <% end %>
+                <h5><%= reservation.user.user_name%></h5>
+              </div>
               <p>📅 From: <%=reservation.start_date%> to <%=reservation.end_date%></p>
             </div>
             <div class="buttons">

@@ -3,7 +3,6 @@
     <div class="index-button">
       <%= link_to('Add', new_vehicle_path) %>
     </div>
-
   <div class="row mt-3">
     <div class="col-6">
       <% @vehicles.each do |vehicle| %>
@@ -15,21 +14,22 @@
               <p><%= vehicle.description%></p>
             </div>
             <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
-            <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: "card-trip-user avatar-bordered" %>
+            <% else %>
+              <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+            <% end %>
+          </div>
+         </div>
+        <% end %>
+       </div>
+
+       <div class="col-6">
+        <div id="map"
+          style="width: 100%; height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+         </div>
         </div>
-      </div>
-      <% end %>
-    </div>
-
-    <div class="col-6">
-      <div id="map"
-      style="width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-
-  </div>
-
-
+       </div>
 </div>

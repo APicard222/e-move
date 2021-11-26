@@ -1,5 +1,9 @@
-<%= simple_form_for [@vehicle, @reservation] do |f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
-  <%= f.input :end_date, as: :date, html5: true %>
-  <%= f.submit "Book", class: "btn btn-primary" %>
-<% end %>
+<div class="exterior_container">
+  <div class="main_container">
+    <%= simple_form_for [@vehicle, @reservation] do |f| %>
+      <%= f.input :start_date, as: :date, html5: true %>
+      <%= f.input :end_date, as: :date, html5: true %>
+      <%= f.submit "Book", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

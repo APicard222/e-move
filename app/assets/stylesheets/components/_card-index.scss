@@ -29,6 +29,8 @@
 
 h2 {
   margin-bottom: 0px;
+  font-weight: bold;
+  text-align: center;
 }
 .card-trip {
   overflow: hidden;
@@ -43,7 +45,7 @@ h2 {
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
   color: red;
@@ -55,11 +57,12 @@ h2 {
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 18px;
   opacity: .7;
   margin: 0;
   font-family: "Nunito", "Helvetica", "sans-serif";
-  font-weight: bold;
+  font-weight: bolder;
+  font-style: italic;
 }
 
 
@@ -82,7 +85,7 @@ h2 {
   padding: 8px 24px;
   border-radius: 4px;
   background: #1EDD88;
-  width: 100px;
+  width: 190px;
   text-align: center;
   height: 40px;
 }

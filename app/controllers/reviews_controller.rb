@@ -6,11 +6,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.vehicle = Vehicle.find(params[:vehicle_id])
+    @vehicle = Vehicle.find(params[:vehicle_id])
+    @review.vehicle = @vehicle
     @review.user = current_user
 
     if @review.save
-      @review.vehicle.available = true
+      @vehicle.update(available: true)
       redirect_to reservations_path
     else
       render :new

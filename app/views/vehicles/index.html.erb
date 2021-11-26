@@ -14,6 +14,7 @@
               <p><%= vehicle.description%></p>
             </div>
             <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
+            <% user = User.find(vehicle.user_id) %>
             <% if user.photo.attached? %>
               <%= cl_image_tag user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>

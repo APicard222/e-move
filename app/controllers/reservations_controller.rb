@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @vehicle = Vehicle.find(params[:vehicle_id])
+    @vehicle.available = false
     @user = current_user
     @reservation.vehicle = @vehicle
     @reservation.user = @user

@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
+      @review.vehicle.available = true
       redirect_to reservations_path
     else
       render :new

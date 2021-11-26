@@ -7,6 +7,7 @@
   </div>
   <div class="my_main_container">
     <% @vehicles.each do |vehicle| %>
+    <% user = User.find(vehicle.user_id) %>
       <div class="card-trip">
         <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
@@ -15,7 +16,11 @@
             <p><%= vehicle.description%></p>
           </div>
           <h2 class="card-trip-pricing"><%= vehicle.price %> CHF</h2>
-          <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% else %>
+            <img src="https://picsum.photos/200/200" class="card-trip-user avatar-bordered" />
+          <% end %>
         </div>
       </div>
     <% end %>

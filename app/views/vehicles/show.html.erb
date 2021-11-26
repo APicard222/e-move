@@ -1,19 +1,14 @@
-<div container >
-<h1> Reservez </h1>
+<div class="container" >
+<h1> Reservation </h1>
   <div class="container_cards">
-    <div class="container-card-product">
-      <div class="card-image">
-        <div class="img-banner">
-          <%= cl_image_tag @vehicle.photo.key, height: 465, width: 600, crop: :fill %>
-        </div>
-
-        <div class="card-product-infos">
-          <h2 class= "card_title"><%= @vehicle.title %></h2>
-          <p class= "card__dsc"><%= @vehicle.description %></p>
-          <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
-        </div>
-      </div> 
-    </div>
+    <div class="card-image">
+      <%= cl_image_tag @vehicle.photo.key, width: 600, crop: :fill, class: "img-banner" %>
+      <div class="card-product-infos">
+        <h2 class= "card_title"><%= @vehicle.title %></h2>
+        <p class= "card__dsc"><%= @vehicle.description %></p>
+        <p>Rating: <%= @vehicle.avg_rating ? @vehicle.avg_rating : 'Pas de votes' %></p>
+      </div>
+    </div> 
 
       <!--booking --> 
 
@@ -27,6 +22,7 @@
             </figcaption>         
           </figure>
       </div>
+
       <div class='booking-widget__form'>
         <%= simple_form_for [@vehicle, @reservation] do |f| %>
           <label for='check-in'>Check in</label>
@@ -38,14 +34,10 @@
           <div id='check-out' class='form-field'>
           <%= f.input :end_date, as: :date, html5: true %>
           </div>
-
-          <div class=' form-field form-field__checkbox'>
-            <input type="checkbox" id='flexibleDates' value="">
-          </div>
-            <label for="flexibleDates">Flexible dates</label>
-
+          
           <%= f.submit "Book", class: "bn3" %> 
-          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   

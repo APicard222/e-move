@@ -1,24 +1,20 @@
 .container h1 {
-  display: flex;
-  padding-left: 30px;
-}
-.container_cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  padding-top: 20px;
+  padding-left: 25px;
+  
+
 }
 
-.container-card-product {
+.container_cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 16px;
   align-items: center;
-  
 }
 
 .card-product-infos {
   padding: 16px;
   box-sizing: border-box;
-  width: 600px;
   min-height: 105px;
   padding-bottom: 1px;
   background-color: #fbfbfb;
@@ -32,9 +28,7 @@
 }
 
 .img-banner {
-  display: flex;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  width: 100%;
 }
 
 .card-product:hover {
@@ -58,7 +52,6 @@
 .card-product-infos {
   padding: 16px;
   box-sizing: border-box;
-  width: 600px;
   min-height: 105px;
   padding-bottom: 1px;
   background-color: #fbfbfb;
@@ -134,14 +127,13 @@ color: #868686;
 
 
 .booking-widget {
+  width: 100%;
   margin: 20px auto;
-  height: 100vh;
 }
 
 .booking-widget {
   box-sizing: border-box;
-  width: 345px;
-  min-height: 605px;
+  width: 100%;
   padding-bottom: 1px;
   background-color: #fbfbfb;
   border-radius: 5px;
